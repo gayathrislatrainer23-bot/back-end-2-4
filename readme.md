@@ -55,3 +55,42 @@ json- javascript object notation
 nodemon-used for live server
 gitignore
 
+Day-5
+8/12/2025
+express
+mongodb -nosql
+mongoose
+
+db = schoolDb
+students - collections
+teachers
+staffs
+library
+
+students - collections created
+
+documets
+{
+name : '',
+age :    ,
+std : '',
+
+}
+[{},{}]
+ error handling
+ 
+mongodb : database
+          FEXIBLE structure
+          easy to understand
+          json formate
+
+students db
+similR TO JSON FORMATE 
+{
+name : "Manu",
+rollno : 345,
+age : 23,
+
+}
+
+node + mpongdb => moogose module 
