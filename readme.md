@@ -92,5 +92,19 @@ rollno : 345,
 age : 23,
 
 }
-
 node + mpongdb => moogose module 
+
+DARK MODE -- B- DARK TEXT- WHITE
+LIGHT - B-LIGHT TEXT -BLACK
+
+15/12/2025
+create a folder -- folder name
+npm init  -- package.json will get
+npm i express (dependances in package.json)
+.gitignore
+ add   node_modlue
+
+express
+server create
+app.use()
+
