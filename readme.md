@@ -108,3 +108,31 @@ express
 server create
 app.use()
 
+Day-6
+16/12/2025
+
+mvc
+npm i mongoose
+
+
+routing
+{
+   key : 'value'
+}
+
+16/12/2025
+middleware -->its a fun that runs b/w req and res.
+(req,res,next) =>{
+
+}
+1. App level
+2. Router level
+3. Built in level
+4. third party 
+5. error Handler 
+6. custom
+7. Auth
+
+
+
+nodemon - library for live server

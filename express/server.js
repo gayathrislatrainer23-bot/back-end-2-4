@@ -1,6 +1,14 @@
  const express = require('express');
+ const connectDB = require('./config/db')
+ const userRouter = require('./routes/userRouter')
  const app = express()
  app.use(express.json())
+
+ 
+
+connectDB()
+
+
 
 app.use('/get_api', (req,res)=>{
     res.json({
@@ -10,23 +18,11 @@ app.use('/get_api', (req,res)=>{
 
  app.use('/test',(req,res)=>{
 //    res.send('this is a test')
-   res.json(
-[
-
-    {
-        name: 'Malu',
-        age:4.5
-    },
-    {
-        name: 'Malu',
-        age:4.5
-    }
-]
-   )
  })
-// app.use('/', function(req,res){
-// // res.send('this is a test')
-// })
+
+
+app.use('/users', userRouter)
+
 
 let port = 5000
  app.listen(port,()=>{
