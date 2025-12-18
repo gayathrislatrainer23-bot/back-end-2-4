@@ -1,7 +1,7 @@
  const mongoose = require('mongoose');
 
  const connectDB = async ()=>{
-     await mongoose.connect('mongodb://127.0.0.1:27017/crud-test')
+     await mongoose.connect('mongodb://127.0.0.1:27017/crud-test-2-4')
        .then(() => console.log('Connected!'))
        .catch((err)=>console.log(err))
  }

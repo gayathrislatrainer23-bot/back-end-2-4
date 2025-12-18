@@ -129,10 +129,15 @@ middleware -->its a fun that runs b/w req and res.
 2. Router level
 3. Built in level
 4. third party 
+
 5. error Handler 
 6. custom
 7. Auth
 
-
-
 nodemon - library for live server
+
+make a project 
+npm init
+express server.js
+mvc arch
+logics
