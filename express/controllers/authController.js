@@ -1,5 +1,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+
 
 const userRegister = async (req,res,next)=>{
 // req.body data
@@ -50,17 +52,20 @@ console.log(userDetails)
      const hashedPassword = userDetails.password
      
      console.log("hashedPassword",hashedPassword)
-     const isCompare = await bcrypt.compare(password, hashedPassword);
+     const isCompare = await bcrypt.compare(password,hashedPassword);
      console.log("isCompare",isCompare)
      if(!isCompare){
            res.status(404).json({
        message : 'password incorrect'
      })
      }else{
+        
+      const token  = jwt.sign({ email}, 'secretkey2&4', { expiresIn: '1h' });
 
-       
        res.status(200).json({
-         message : 'login sucessfully'
+         message : 'login sucessfully',
+         token
+
        })
      }
    }
@@ -72,7 +77,7 @@ next(err)
      }
 } 
 
-const forgetPassword  = async ()=>{
+const forgotPassword  = async ()=>{
 
  const {email,Newpassword}= req.body  
  try{
@@ -89,5 +94,5 @@ const userDetails =  await User.findOne(email)
 module.exports = {
     userRegister,
     userLogin,
-    forgetPassword
+    forgotPassword
 }
