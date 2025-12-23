@@ -1,7 +1,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt');
 
-const userRegister = async (req,res)=>{
+const userRegister = async (req,res,next)=>{
 // req.body data
 // insert to collection : 
 // res
@@ -24,37 +24,70 @@ res.status(200).json({
 
 }catch(err){
 
-res.status(500).json({
-  message : 'server'
-})
+next(err)
 
      }
 } 
 
-const userLogin = async (req,res)=>{
+const userLogin = async (req,res,next)=>{
 // req.body data
 // insert to collection : 
 // res
+const {email,password}= req.body  
  try{
-    const {email,password}= req.body  
+  console.log(password)
 
-   
+const userDetails =  await User.findOne({email:email})
 
-// res.status(200).json({
-//   message : 'registration sucessfully'
-// })
+console.log(userDetails)
+
+   if(!userDetails){
+    res.status(404).json({
+  message : 'user not exist'
+})
+   }else{
+
+     const hashedPassword = userDetails.password
+     
+     console.log("hashedPassword",hashedPassword)
+     const isCompare = await bcrypt.compare(password, hashedPassword);
+     console.log("isCompare",isCompare)
+     if(!isCompare){
+           res.status(404).json({
+       message : 'password incorrect'
+     })
+     }else{
+
+       
+       res.status(200).json({
+         message : 'login sucessfully'
+       })
+     }
+   }
 
 }catch(err){
 
-res.status(500).json({
-  message : 'server'
-})
+next(err)
 
      }
 } 
 
+const forgetPassword  = async ()=>{
+
+ const {email,Newpassword}= req.body  
+ try{
+
+const userDetails =  await User.findOne(email)
+
+
+ }catch(err){
+
+ }
+}
 
 
 module.exports = {
     userRegister,
+    userLogin,
+    forgetPassword
 }

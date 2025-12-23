@@ -3,6 +3,7 @@
  const connectDB = require('./config/db')
  const userRouter = require('./routes/userRouter')
  const authRouter = require('./routes/authRouter')
+ const errorHandler = require('./middleware/ErrorHandler')
 //  ....
 
  const app = express()
@@ -29,7 +30,7 @@ app.use('/users', userRouter)
 app.use('/auth', authRouter)
 // app.use('/products', userRouter)
 
-
+app.use(errorHandler)
 let port = 5000
  app.listen(port,()=>{
     console.log('server is running')

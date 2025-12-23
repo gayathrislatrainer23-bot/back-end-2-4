@@ -141,3 +141,9 @@ npm init
 express server.js
 mvc arch
 logics
+
+
+task on monday : 29/12/2025
+
+update
+ delete
