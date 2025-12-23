@@ -2,6 +2,7 @@
  //16/12/2025--update
  const connectDB = require('./config/db')
  const userRouter = require('./routes/userRouter')
+ const authRouter = require('./routes/authRouter')
 //  ....
 
  const app = express()
@@ -25,6 +26,8 @@ connectDB()
 
 //16/12/2025--update
 app.use('/users', userRouter)
+app.use('/auth', authRouter)
+// app.use('/products', userRouter)
 
 
 let port = 5000

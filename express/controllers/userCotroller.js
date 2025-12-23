@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcrypt = require('bcrypt');
 const getUser = (req,res)=>{
 res.json({
    name: "Selva .P",
