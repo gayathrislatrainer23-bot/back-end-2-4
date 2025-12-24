@@ -1,11 +1,12 @@
  const express = require('express');
+ const dotenv =require('dotenv')
  //16/12/2025--update
  const connectDB = require('./config/db')
  const userRouter = require('./routes/userRouter')
  const authRouter = require('./routes/authRouter')
  const errorHandler = require('./middleware/ErrorHandler')
 //  ....
-
+dotenv.config()
  const app = express()
  app.use(express.json())
 

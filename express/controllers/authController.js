@@ -60,7 +60,7 @@ console.log(userDetails)
      })
      }else{
         
-      const token  = jwt.sign({ email}, 'secretkey2&4', { expiresIn: '1h' });
+      const token  = jwt.sign({ email},process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
 
        res.status(200).json({
          message : 'login sucessfully',
