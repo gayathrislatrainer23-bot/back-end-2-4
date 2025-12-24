@@ -26,8 +26,15 @@ res.status(200).json({
           
 }
 
+const profileUpdate =(req,res,next)=>{
+    console.log('haii')
+    res.status(200).json({
+    message: ' profile updated sucessfully'
+})
+}
 
 module.exports ={
     getUser,
-    createUser
+    createUser,
+    profileUpdate
 }
