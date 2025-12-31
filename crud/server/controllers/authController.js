@@ -9,9 +9,9 @@ const userRegister = async (req,res,next)=>{
 // res
  try{
     const {userName,age, email,password}= req.body  
-console.log('pswd', password)
+// console.log('pswd', password)
     const hashedPassword =await bcrypt.hash(password,10);
-console.log('hashedPassword',hashedPassword)
+// console.log('hashedPassword',hashedPassword)
     const output = await User.insertOne({name : userName,age, email,password: hashedPassword})
 
 if(!output){
