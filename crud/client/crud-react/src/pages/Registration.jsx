@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from 'axios'
-
+import api from "../api/axiosInstance"
 const Registration = ()=>{
 const [name, setName]= useState('')
 const [email, setEmail]= useState('')
@@ -14,10 +14,8 @@ const handleSubmit=async (e)=>{
         password : password
     }
     try{
-
-      const  res = await axios.post('http://localhost:5000/auth/register',formData)
+      const  res = await api.post('/auth/register',formData)
         if(res.status === 200){
-
             alert('registration success')
         }
     }catch(err){
